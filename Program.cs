@@ -1,53 +1,44 @@
-﻿// Задача 1: Задайте массив заполненный случайными положительными трёхзначными числами. 
-// Напишите программу, которая покажет количество чётных чисел в массиве.
+﻿// Задача 1. Задайте двумерный массив размером m×n, заполненный 
+// случайными вещественными числами.
 
-// [345, 897, 568, 234] -> 2
+// m = 3, n = 4.
 
+// 0,5  7  -2  -0,2
 
+// 1  -3,3  8  -9,9
 
+// 8  7,8  -7,1  9
 
-int InputUser(string msg) // тип возвращаемого значение (int) название метода. в скобках тип параметра который метод принемает. 
+// На этом методе я создал массив, дал ему каркас (row, col) и объем (- 900, 1000) 
+
+int[,] GenerateArray(int row, int col)
 {
-    Console.Write($"{msg} = >");
-    int userNumber = Convert.ToInt32(Console.ReadLine());
-    return userNumber;
-}
-// Метод заполнения массива случайными положительнымиnht трехзначными  числами
-int[] FillArray(int[] array)
-{
+    int[,] array = new int[row, col]; // Создаем 2-мерный массив
     Random rnd = new Random();
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        array[i] = rnd.Next(100, 1000);
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = rnd.Next(-900, 1000) ;
+        }
     }
-    Console.WriteLine();
     return array;
 }
 
-//   метод показывает количество четных чисел в массиве
-
-int ShowEvenArray(int[] array)
+// метод с функцей void вывел в консоль наш массив именно вещественные числа. 
+void PrintArray(int[,] array)
 {
-    int result = 0;
-    for (int i = 0; i < array.Length; i++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        if (array[i] % 2 == 0) result++;
-    }
-    return result;
-}
-//  метод вывода массива
-void PrintArray(int[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-    {
-        Console.Write($"{array[i]}  ");
+        Console.WriteLine();
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($"{array[i, j]/10.0}\t");
+        }
     }
     Console.WriteLine();
-
 }
 
-int userNumber = InputUser("Введите колличество элементов массива ");
-int[] myArray = new int[userNumber];
-FillArray(myArray);
-PrintArray(myArray);
-Console.WriteLine($"Колличество четных чисел в массиве  {ShowEvenArray(myArray)} ");
+int[,] matrix = GenerateArray(3, 4);
+PrintArray(matrix);
+
