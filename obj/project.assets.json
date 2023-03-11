@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "O:\\Личное\\GB\\C#\\Seminar №7\\HW\\Lesson7 _HW1\\Lesson7 _HW1.csproj",
-      "projectName": "Lesson7 _HW1",
-      "projectPath": "O:\\Личное\\GB\\C#\\Seminar №7\\HW\\Lesson7 _HW1\\Lesson7 _HW1.csproj",
+      "projectUniqueName": "O:\\Личное\\GB\\C#\\Seminar №8\\HW\\Lesson8 _HW1\\Lesson8 _HW1.csproj",
+      "projectName": "Lesson8 _HW1",
+      "projectPath": "O:\\Личное\\GB\\C#\\Seminar №8\\HW\\Lesson8 _HW1\\Lesson8 _HW1.csproj",
       "packagesPath": "C:\\Users\\Gasan\\.nuget\\packages\\",
-      "outputPath": "O:\\Личное\\GB\\C#\\Seminar №7\\HW\\Lesson7 _HW1\\obj\\",
+      "outputPath": "O:\\Личное\\GB\\C#\\Seminar №8\\HW\\Lesson8 _HW1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Gasan\\AppData\\Roaming\\NuGet\\NuGet.Config"

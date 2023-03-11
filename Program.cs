@@ -1,15 +1,5 @@
-﻿// Задача 1. Задайте двумерный массив размером m×n, заполненный 
-// случайными вещественными числами.
-
-// m = 3, n = 4.
-
-// 0,5  7  -2  -0,2
-
-// 1  -3,3  8  -9,9
-
-// 8  7,8  -7,1  9
-
-// На этом методе я создал массив, дал ему каркас (row, col) и объем (- 900, 1000) 
+﻿// Задайте двумерный массив. Напишите программу, которая упорядочивает 
+// по убыванию элементы каждой строки двумерного массива.
 
 int[,] GenerateArray(int row, int col)
 {
@@ -19,13 +9,12 @@ int[,] GenerateArray(int row, int col)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = rnd.Next(-900, 1000) ;
+            array[i, j] = rnd.Next(-9, 10);
         }
     }
     return array;
 }
 
-// метод с функцей void вывел в консоль наш массив именно вещественные числа. 
 void PrintArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
@@ -33,12 +22,64 @@ void PrintArray(int[,] array)
         Console.WriteLine();
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            Console.Write($"{array[i, j]/10.0}\t");
+            Console.Write($"{array[i, j]} \t");
         }
     }
     Console.WriteLine();
 }
 
-int[,] matrix = GenerateArray(3, 4);
-PrintArray(matrix);
+int[,] RebuildAnArray(int[,] array)
 
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int k = 0; k < array.GetLength(1) - 1; k++)
+            {
+                if (array[i, k]< array[i, k + 1])  
+                {
+                    int temp = array[i, k + 1];
+                    array[i, k + 1] = array[i, k];
+                    array[i, k] = temp;
+                }
+            }
+        }
+    }
+    return array;
+}
+
+//
+// // Функция сортировки элементов в строке двумерного массива, по убыванию
+// void SortMatrixByRowDesc(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         SortRow(array, i);
+//     }
+// }
+
+// void SortRow(int[,] array, int i)
+// {
+//     for (int j = 0; j < array.GetLength(1); j++)
+//     {
+//         for (int k = 0; k < array.GetLength(1) - 1; k++)
+//         {
+//             if (array[i, k] < array[i, k + 1])
+//             {
+//                 Swap(array, k, i);
+//             }
+//         }
+//     }
+// }
+
+// void Swap(int[,] array, int i, int row)
+// {
+//     int temp = array[row, i + 1];
+//     array[row, i + 1] = array[row, i];
+//     array[row, i] = temp;
+// }
+
+int[,] MyArray = GenerateArray(3, 3);
+PrintArray(MyArray);
+PrintArray(RebuildAnArray(MyArray));
